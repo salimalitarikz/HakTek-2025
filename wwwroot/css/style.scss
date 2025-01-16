@@ -1,0 +1,499 @@
+
+:root{
+    --color-1:#f8f8f8;
+    --color-2:#161616;
+    --color-3:#dddddd;
+    --color-4:#3f3f3f;
+}
+
+$color1 : var(--color-1);
+$color2 : var(--color-2);
+$color3 : var(--color-3);
+$color4 : var(--color-4);
+
+
+
+*{
+    font-family: "Archivo", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 25;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $color2;
+}
+
+html{
+    // overflow-x: hidden;
+}
+
+.icon{
+    font-size: 1rem;
+    display: inline-block;
+    svg{
+        width: 1em;
+        height: 1em;
+        fill: $color2;
+    }
+
+    &.passive{
+        display: none;
+    }
+}
+
+
+
+// Mixin tanımı
+@mixin animated-text($animation-name, $duration, $delay) {
+    span {
+      opacity: 0;
+      display: inline-block;
+      animation: #{$animation-name} $duration ease forwards;
+  
+      // Her harf için dinamik gecikme ekle
+      @for $i from 1 through 100 {
+        &:nth-child(#{$i}) {
+          animation-delay: $delay * ($i - 1);
+        }
+      }
+    }
+  
+    br {
+      display: block; // Yeni satır için
+      margin: 0.5em 0; // İsteğe bağlı: Satırlar arası boşluk
+    }
+  }
+  
+  // Ana animasyon
+  @keyframes textAn1 {
+    0% {
+      opacity: 0;
+      transform: translateX(-0.5rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  // Dinamik sınıf
+  .animated-text {
+    display: inline-block; // JavaScript ile oluşturulan spanları desteklemek için
+    @include animated-text("textAn1", 1s, 0.04s);
+  }
+  
+
+
+  button{
+    outline: none;
+    background-color: transparent;
+    display: inline-block;
+    width: fit-content;
+    height: fit-content;
+    // min-height: 1.2rem;
+    min-width: 1.2rem;
+    padding:  .75em;
+    border-radius: .5rem;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .filled{
+    background-color: $color3;
+  }
+
+  .filled_2{
+    background-color: $color2;
+    color: $color1;
+  }
+
+  .outlined{
+    border: 1px solid $color2;
+    font-weight: 500;
+  }
+
+  a{
+    color: unset;
+    text-decoration: none;
+  }
+
+  body{
+    overflow-x: hidden;
+    background-image: repeating-linear-gradient(to right, $color3, $color3 1px, transparent 1px, transparent);
+    background-size: 20vw 20vw;
+    background-color: $color1;
+
+    min-height: 370vh;
+
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+
+  nav{
+    height: 4rem;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+
+    background-image: repeating-linear-gradient(to right, $color3, $color3 1px, transparent 1px, transparent);
+    background-size: 20vw 20vw;
+    background-color: $color1;
+    
+    >.logo{
+        font-size: 1.7rem;
+        font-weight: 500;
+    }
+
+    >.links{
+        display: inline-flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    >#menu_button{
+        display: none;
+        background-color: $color3;
+        padding: .9rem;
+    }
+
+    @media screen and (max-width:500px) {
+        .links,#color_mode_button{
+            display: none;
+        }
+
+        >#menu_button{
+            display: inline-block;
+            border-radius: .35rem;
+        }
+
+        >.firm_description{
+            font-size: .9rem;
+        }
+    }
+
+}
+
+section{
+    padding: 1rem;
+}
+
+#index_part_1{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+
+    >.upper{
+        width: 100%;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 5rem 0;
+
+        >h1{
+            margin-left: 2rem;
+            font-size: 5rem;
+        }
+
+        >button{
+            @extend.filled_2;
+            font-size: 1.1rem;
+            padding: 1em 1.5em;
+            margin-left: 11rem;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateX(-.5rem);
+
+            animation: i_p_1_b_an .5s ease-out forwards 1s;
+            @keyframes i_p_1_b_an {
+                to{opacity: 1;transform: unset;}
+            }
+        }
+
+     
+    }
+
+    >.lower{
+        width: 100%;
+        height: 50%;
+        display: flex;
+        gap: 1rem;
+        >.video_box{
+            width: 85%;
+            height: 90%;
+            overflow: hidden;
+            border-radius: 1rem;
+            
+            >video{
+                width: 100%;
+                height: 100%;
+                object-position: 40% 30%;
+                object-fit: cover;
+                filter: sepia(43%) brightness(160%) hue-rotate(318deg) saturate(445%) contrast(109%);
+
+                -webkit-filter: sepia(100%) brightness(160%) hue-rotate(325deg) saturate(500%) contrast(120%);
+
+                -moz-filter: sepia(43%) brightness(160%) hue-rotate(318deg) saturate(445%) contrast(109%);
+            }
+        }
+
+
+        .animated_services_container {
+            overflow: hidden;
+            height: 90%; /* Tüm span'ların görüneceği şekilde %100 yüksek */
+            width: 15%;
+            position: relative;
+          }
+          
+          .animated_services {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+          }
+          
+          .animated_services span {
+            height: 14.2%; /* Her bir span'ın yüksekliği */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10px;
+            box-sizing: border-box;
+            transition: opacity 0.5s ease; /* Opacity geçiş efekti */
+          }
+
+        
+    }   
+
+    @media screen and (max-width:500px) {
+        >.upper{
+            h1{
+                font-size: 2.5rem;
+            }
+        }
+
+        >.lower{
+            flex-direction: column;
+
+            >.video_box{
+                width: 100%;
+                height: 100%;
+            }
+
+            .animated_services_container{
+                width: 100%;
+            }
+
+            .animated_services{
+                flex-direction: row !important ;
+
+                span{
+                    height: max-content;
+                    display: inline-block;
+                    width: fit-content;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+}
+
+#index_part_2{
+    height: 80vh;
+    width: 100%;
+    position: sticky;
+    left: 0;
+    top: 4rem;
+    overflow: hidden;
+
+    >.part_2_div{
+        display: flex;
+        
+        height: 80vh;
+        padding-top: 8rem;
+        justify-content: space-between;
+
+        >.left{
+            width: 60%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 3rem;
+
+            >span{
+                font-size: 1.5rem;
+                color: $color4;
+
+            }
+
+            >h1{
+                font-size: 5rem;
+
+                >span{
+                    // color: $color3;
+                }
+            }
+
+            >.svg_div{
+                margin-top: auto;
+                // border: 1px solid $color3;
+                height: 60%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                img{
+                   
+                    width: 70%;
+                    height: auto;
+                }
+            }
+
+        }
+
+        >.right{
+            width: 39%;
+            // border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            gap: 5rem;
+            
+                >span{
+                    display: inline-block;
+                    height: 0rem;
+                }
+
+               >p{
+                font-size: 1.7rem;
+                width: 60%;
+               }
+
+               >div{
+                width: 80%;
+                display: flex;
+                gap: 3rem;
+
+                    >div{
+                        display: flex;
+                        flex-direction: column;
+                        gap: .6rem;
+
+                        >h3{
+                           
+                            >span, >span>span{
+                                font-size: 1.2rem;
+                                font-weight: 600;
+                            }
+                        }
+
+                        >P{
+                            font-size: 1.1rem;
+                        }
+                    }
+               }
+        }
+    }
+
+    >.part_2_div{
+        position: absolute;
+        transition: .2s;
+    }
+
+    >.passive{
+        opacity: 0;
+
+
+    }
+
+    >.active{
+        z-index: 3;
+        span,h1,p,h3{
+            transition-delay: 1s !important;
+            @extend.animated-text;
+        }
+
+    }
+
+    @media screen and (max-width:500px) {
+        top: 2rem;
+        height: 85vh;
+        >.part_2_div{
+            flex-direction: column;
+            padding-top: 3rem;
+
+            >.left{
+                width: 100%;
+                gap: 1.5rem;
+
+                >h1{
+                    font-size: 2.5rem;
+                }
+
+                >.svg_div{
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+
+            >.right{
+                width: 100%;
+                gap:2rem;
+
+                >p{
+                    width: 90%;
+                    font-size: 1.4rem;
+                }
+
+                >div{
+                    width: 100%;
+
+                    >div{
+                        >h3{
+                           
+                            >span, >span>span{
+                                font-size: 1.1rem;
+                                font-weight: 600;
+                            }
+                        }
+                        >p{
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+#index_part_3{
+    margin-top: 140vh;
+
+    >h1{
+        font-size: 3.5rem;
+    }
+
+
+    @media screen and (max-width:500px) {
+        margin-top: 150vh;
+    }
+}
