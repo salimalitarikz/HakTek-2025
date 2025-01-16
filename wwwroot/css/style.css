@@ -2,8 +2,9 @@
 :root {
   --color-1:#f8f8f8;
   --color-2:#161616;
-  --color-3:#dddddd;
+  --color-3:#ececec;
   --color-4:#3f3f3f;
+  --color-5:#797979;
 }
 
 * {
@@ -32,13 +33,8 @@
 }
 
 @keyframes textAn1 {
-  0% {
-    opacity: 0;
-    transform: translateX(-0.5rem);
-  }
   100% {
     opacity: 1;
-    transform: translateX(0);
   }
 }
 .animated-text, #index_part_2 > .active span, #index_part_2 > .active h1, #index_part_2 > .active p, #index_part_2 > .active h3 {
@@ -401,6 +397,9 @@ body {
   display: flex;
   flex-direction: column;
 }
+body.scrollStopped {
+  overflow-y: hidden;
+}
 
 nav {
   height: 4rem;
@@ -413,7 +412,7 @@ nav {
   font-size: 1.1rem;
   position: sticky;
   top: 0;
-  z-index: 3;
+  z-index: 5;
   background-image: repeating-linear-gradient(to right, var(--color-3), var(--color-3) 1px, transparent 1px, transparent);
   background-size: 20vw 20vw;
   background-color: var(--color-1);
@@ -443,6 +442,82 @@ nav > #menu_button {
   nav > .firm_description {
     font-size: 0.9rem;
   }
+}
+
+menu {
+  background-image: repeating-linear-gradient(to right, var(--color-3), var(--color-3) 1px, transparent 1px, transparent);
+  background-size: 20vw 20vw;
+  background-color: var(--color-1);
+  width: 100vw;
+  height: calc(100vh - 4rem);
+  position: fixed;
+  top: -90vh;
+  transition: 0.3s ease-out;
+  left: 0;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 1rem;
+  overflow: hidden;
+}
+menu > .menu_info {
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  padding-bottom: 0.5rem;
+  color: var(--color-4);
+  border-bottom: 1px solid var(--color-4);
+}
+menu > .menu_links {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+menu > .menu_links > a {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+menu > .menu_action {
+  margin-top: 9rem;
+  width: 100%;
+}
+menu > .menu_action > a {
+  width: 100%;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-4);
+  border-radius: 0.5rem;
+}
+menu > .menu_footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 5rem;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+}
+menu > .menu_footer > img {
+  height: 4rem;
+  width: 4rem;
+}
+menu > .menu_footer > div, menu > .menu_footer div > a {
+  color: var(--color-1) !important;
+  width: 25%;
+}
+menu > .menu_footer > div > a, menu > .menu_footer div > a > a {
+  color: var(--color-5) !important;
+}
+menu > .menu_footer > div:nth-last-child(1), menu > .menu_footer div > a:nth-last-child(1) {
+  text-align: right;
+}
+menu.opened {
+  top: 4rem;
 }
 
 section {
@@ -678,13 +753,80 @@ section {
 }
 
 #index_part_3 {
-  margin-top: 140vh;
+  margin-top: 150vh;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
 }
 #index_part_3 > h1 {
   font-size: 3.5rem;
 }
+#index_part_3 > #services_table {
+  display: flex;
+  flex-direction: column;
+}
+#index_part_3 > #services_table > div {
+  border-bottom: 1px solid var(--color-4);
+  height: 10rem;
+  padding: 2rem 3rem;
+  display: flex;
+  gap: 5rem;
+}
+#index_part_3 > #services_table > div:nth-last-child(1) {
+  border-bottom: unset;
+}
+#index_part_3 > #services_table > div > .image_wraper {
+  height: 100%;
+  min-width: 12rem;
+  width: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#index_part_3 > #services_table > div > .image_wraper > img {
+  height: 90%;
+}
+#index_part_3 > #services_table > div > .image_wraper.h1 > img {
+  height: 145%;
+}
+#index_part_3 > #services_table > div > .image_wraper.h2 > img {
+  height: 140%;
+}
+#index_part_3 > #services_table > div > .description {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2rem;
+  gap: 5rem;
+}
+#index_part_3 > #services_table > div > .description > .name {
+  min-width: 17rem;
+}
+#index_part_3 > #services_table > div > .description > .info {
+  width: 70%;
+}
 @media screen and (max-width: 500px) {
   #index_part_3 {
     margin-top: 170vh;
+    gap: 2rem;
   }
+  #index_part_3 #services_table div {
+    padding: 0.5rem 0;
+    gap: 1rem;
+  }
+  #index_part_3 #services_table div > .image_wraper {
+    padding: 2.4rem;
+    min-width: unset;
+    min-width: 6.5rem;
+  }
+  #index_part_3 #services_table div > .description {
+    font-size: 1rem;
+  }
+  #index_part_3 #services_table div > .description > .info {
+    display: none;
+  }
+}
+
+#index_part_4 {
+  min-height: 60vh;
 }/*# sourceMappingURL=style.css.map */
