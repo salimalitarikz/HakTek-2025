@@ -17,6 +17,7 @@
   padding: 0;
   box-sizing: border-box;
   color: var(--color-2);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .icon {
@@ -431,6 +432,12 @@ nav > #menu_button {
   background-color: var(--color-3);
   padding: 0.9rem;
 }
+nav > #menu_button.active i:is(.active) {
+  display: none;
+}
+nav > #menu_button.active i:is(.passive) {
+  display: inline-block;
+}
 @media screen and (max-width: 500px) {
   nav .links, nav #color_mode_button {
     display: none;
@@ -452,7 +459,7 @@ menu {
   height: calc(100vh - 4rem);
   position: fixed;
   top: -90vh;
-  transition: 0.3s ease-out;
+  transition: 0.3s ease-in-out;
   left: 0;
   z-index: 4;
   display: flex;
@@ -495,7 +502,7 @@ menu > .menu_footer {
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
-  height: 5rem;
+  height: 4rem;
   background-color: #000;
   position: absolute;
   left: 0;
@@ -614,23 +621,26 @@ section {
   #index_part_1 {
     padding: 0.5rem;
   }
+  #index_part_1 > .upper {
+    padding-bottom: 3rem;
+  }
   #index_part_1 > .upper h1 {
-    font-size: 1.8rem;
+    font-size: 2.1rem;
     text-align: center;
     margin-left: 0;
     row-gap: 1rem;
   }
   #index_part_1 > .upper h1 span {
-    font-weight: 600;
+    font-weight: 500;
   }
   #index_part_1 > .upper h1 > span:nth-child(3) {
     flex-basis: unset;
   }
   #index_part_1 > .upper h1 > span:nth-child(5) {
-    margin-left: 3rem;
+    margin-left: unset;
   }
   #index_part_1 > .upper button {
-    margin-left: 5rem;
+    margin-left: 0.5rem;
     padding: 1rem 1.5rem;
     font-size: 1rem;
   }
@@ -758,6 +768,9 @@ section {
   }
   #index_part_2 > .part_2_div > .left > h1 {
     font-size: 2.5rem;
+  }
+  #index_part_2 > .part_2_div > .left > span {
+    font-size: 1.1rem;
   }
   #index_part_2 > .part_2_div > .left > .svg_div img {
     width: 100%;

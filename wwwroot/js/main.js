@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.querySelector("#menu_button").addEventListener("click",function (params) {
     let menu = document.querySelector("menu");
     this.classList.toggle("active");
-
+    
     menu.classList.toggle("opened");
     
     document.querySelector("body").classList.toggle("scrollStopped");

@@ -25,6 +25,8 @@ $color5 : var(--color-5);
     padding: 0;
     box-sizing: border-box;
     color: $color2;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 html{
@@ -175,6 +177,17 @@ html{
         display: none;
         background-color: $color3;
         padding: .9rem;
+
+        &.active{
+
+            i:is(.active){
+                display: none;
+            }
+            i:is(.passive){
+                display: inline-block;
+            }
+
+        }
     }
 
     @media screen and (max-width:500px) {
@@ -206,7 +219,7 @@ menu{
 
     position: fixed;
     top: -90vh;
-    transition: .3s ease-out;
+    transition: .3s ease-in-out;
     // top: 4rem;
     left: 0;
     z-index: 4;
@@ -258,7 +271,7 @@ menu{
         justify-content: space-between;
        
         padding: 1rem;
-        height: 5rem;
+        height: 4rem;
         background-color: #000;
         position: absolute;
         left: 0;bottom: 0;
@@ -396,15 +409,16 @@ section{
     @media screen and (max-width:500px) {
         padding: .5rem;
         >.upper{
+            padding-bottom: 3rem;
             h1{
-                font-size: 1.8rem;
+                font-size: 2.1rem;
                 text-align: center;
                 margin-left: 0;
-               
                 row-gap: 1rem;
 
                 span{
-                    font-weight: 600;
+                    
+                    font-weight: 500;
                 }
                 >span:nth-child(3){
 
@@ -413,12 +427,12 @@ section{
     
                 >span:nth-child(5){
                     
-                    margin-left: 3rem;
+                    margin-left: unset;
                 }
             }
 
             button{
-                margin-left: 5rem;
+                margin-left: .5rem;
                 padding: 1rem 1.5rem; 
                 font-size: 1rem;
             }
@@ -580,6 +594,10 @@ section{
 
                 >h1{
                     font-size: 2.5rem;
+                }
+
+                >span{
+                    font-size: 1.1rem;
                 }
 
                 >.svg_div{
