@@ -308,6 +308,18 @@ section{
         >h1{
             margin-left: 2rem;
             font-size: 5rem;
+            display: flex;
+            flex-wrap: wrap;
+
+            >span:nth-child(3){
+
+                flex-basis: 70%;
+            }
+
+            >span:nth-child(5){
+                
+                margin-left: 4rem;
+            }
         }
 
         >button{
@@ -382,14 +394,33 @@ section{
     }   
 
     @media screen and (max-width:500px) {
+        padding: .5rem;
         >.upper{
             h1{
-                font-size: 2.5rem;
-                margin-left: .4rem;
+                font-size: 1.8rem;
+                text-align: center;
+                margin-left: 0;
+               
+                row-gap: 1rem;
+
+                span{
+                    font-weight: 600;
+                }
+                >span:nth-child(3){
+
+                    flex-basis: unset;
+                }
+    
+                >span:nth-child(5){
+                    
+                    margin-left: 3rem;
+                }
             }
 
             button{
-                margin-left: .5rem;
+                margin-left: 5rem;
+                padding: 1rem 1.5rem; 
+                font-size: 1rem;
             }
         }
 
