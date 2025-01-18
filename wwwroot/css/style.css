@@ -44,7 +44,7 @@
 .animated-text span, #index_part_2 > .active span span, #index_part_2 > .active h1 span, #index_part_2 > .active p span, #index_part_2 > .active h3 span {
   opacity: 0;
   display: inline-block;
-  animation: textAn1 1s ease forwards;
+  animation: textAn1 3s ease forwards;
 }
 .animated-text span:nth-child(1), #index_part_2 > .active span span:nth-child(1), #index_part_2 > .active h1 span:nth-child(1), #index_part_2 > .active p span:nth-child(1), #index_part_2 > .active h3 span:nth-child(1) {
   animation-delay: 0s;

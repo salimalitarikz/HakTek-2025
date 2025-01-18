@@ -84,7 +84,7 @@ html{
   // Dinamik sınıf
   .animated-text {
     display: inline-block; // JavaScript ile oluşturulan spanları desteklemek için
-    @include animated-text("textAn1", 1s, 0.04s);
+    @include animated-text("textAn1", 3s, 0.04s);
   }
   
 
