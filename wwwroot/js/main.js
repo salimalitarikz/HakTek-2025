@@ -226,61 +226,61 @@ document.querySelector('video').playbackRate = .8;
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const indexPart2 = document.querySelector("#index_part_2");
+// document.addEventListener("DOMContentLoaded", () => {
+//     const indexPart2 = document.querySelector("#index_part_2");
   
-    // Track the stopping point
-    const stopPoint = 1300; // Scroll value where the sticky behavior should stop
-    const stickyTop = 4 * 16; // Convert rem to pixels (4rem = 64px assuming 1rem = 16px)
+//     // Track the stopping point
+//     const stopPoint = 1300; // Scroll value where the sticky behavior should stop
+//     const stickyTop = 4 * 16; // Convert rem to pixels (4rem = 64px assuming 1rem = 16px)
   
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY;
-      console.log(scrollTop);
+//     window.addEventListener("scroll", () => {
+//       const scrollTop = window.scrollY;
+//       console.log(scrollTop);
   
-      if (scrollTop > stopPoint) {
-        indexPart2.style.position = "fixed";
-        indexPart2.style.top = `${stopPoint - scrollTop + stickyTop}px`;
-      } else {
-        indexPart2.style.position = "sticky";
-        indexPart2.style.top = "4rem"; // Original top value
-      }
-    });
-  });
+//       if (scrollTop > stopPoint) {
+//         indexPart2.style.position = "fixed";
+//         indexPart2.style.top = `${stopPoint - scrollTop + stickyTop}px`;
+//       } else {
+//         indexPart2.style.position = "sticky";
+//         indexPart2.style.top = "4rem"; // Original top value
+//       }
+//     });
+//   });
   
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const content1 = document.querySelector("#p_2_content_1");
-    const content2 = document.querySelector("#p_2_content_2");
+// document.addEventListener("DOMContentLoaded", () => {
+//     const content1 = document.querySelector("#p_2_content_1");
+//     const content2 = document.querySelector("#p_2_content_2");
   
-    // Scroll thresholds configuration
-    const scrollThresholds = {
-      content1Activate: 300,
-      content2Activate: 1100
-    };
+//     // Scroll thresholds configuration
+//     const scrollThresholds = {
+//       content1Activate: 300,
+//       content2Activate: 1100
+//     };
   
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY;
+//     window.addEventListener("scroll", () => {
+//       const scrollTop = window.scrollY;
   
-      if (scrollTop > scrollThresholds.content2Activate) {
-        // ScrollTop > content2Activate: Activate content2, deactivate content1
-        content2.classList.add("active");
-        content2.classList.remove("passive");
-        content1.classList.add("passive");
-        content1.classList.remove("active");
-      } else if (scrollTop > scrollThresholds.content1Activate) {
-        // ScrollTop > content1Activate and <= content2Activate: Activate content1, deactivate content2
-        content1.classList.add("active");
-        content1.classList.remove("passive");
-        content2.classList.add("passive");
-        content2.classList.remove("active");
-      } else {
-        // ScrollTop <= content1Activate: Deactivate all
-        content1.classList.add("passive");
-        content1.classList.remove("active");
-        content2.classList.add("passive");
-        content2.classList.remove("active");
-      }
-    });
-  });
+//       if (scrollTop > scrollThresholds.content2Activate) {
+//         // ScrollTop > content2Activate: Activate content2, deactivate content1
+//         content2.classList.add("active");
+//         content2.classList.remove("passive");
+//         content1.classList.add("passive");
+//         content1.classList.remove("active");
+//       } else if (scrollTop > scrollThresholds.content1Activate) {
+//         // ScrollTop > content1Activate and <= content2Activate: Activate content1, deactivate content2
+//         content1.classList.add("active");
+//         content1.classList.remove("passive");
+//         content2.classList.add("passive");
+//         content2.classList.remove("active");
+//       } else {
+//         // ScrollTop <= content1Activate: Deactivate all
+//         content1.classList.add("passive");
+//         content1.classList.remove("active");
+//         content2.classList.add("passive");
+//         content2.classList.remove("active");
+//       }
+//     });
+//   });
   
