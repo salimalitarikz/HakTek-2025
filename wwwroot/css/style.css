@@ -531,6 +531,18 @@ section {
   padding: 1rem;
 }
 
+.no_desktop {
+  display: none !important;
+}
+
+@media screen and (max-width: 500px) {
+  .no_mobile {
+    display: none !important;
+  }
+  .no_desktop {
+    display: inline-block;
+  }
+}
 #index_part_1 {
   width: 100%;
   height: 90vh;
@@ -538,28 +550,23 @@ section {
   flex-direction: column;
 }
 #index_part_1 > .upper {
-  width: 100%;
+  width: 85%;
+  height: 50%;
   flex-grow: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 3rem 0;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 4rem 0;
 }
 #index_part_1 > .upper > h1 {
-  margin-left: 2rem;
-  font-size: 5rem;
-  display: flex;
-  flex-wrap: wrap;
-}
-#index_part_1 > .upper > h1 > span:nth-child(3) {
-  flex-basis: 70%;
-}
-#index_part_1 > .upper > h1 > span:nth-child(3) {
-  margin-left: 4rem;
+  font-size: 4.5rem;
+  white-space: nowrap;
+  line-height: 1.1;
 }
 #index_part_1 > .upper > button {
-  font-size: 1.1rem;
-  padding: 1em 1.5em;
+  font-size: 1rem;
+  padding: 1.1em 1.5em;
+  font-weight: 300;
   margin-left: 11rem;
   margin-top: 2rem;
   opacity: 0;
@@ -569,12 +576,12 @@ section {
 @keyframes i_p_1_b_an {
   to {
     opacity: 1;
-    transform: unset;
+    transform: translateX(-0.7rem) translateY(-0.4rem);
   }
 }
 #index_part_1 > .lower {
   width: 100%;
-  height: 50%;
+  height: 60%;
   display: flex;
   gap: 1rem;
 }
@@ -622,16 +629,20 @@ section {
     padding: 0.5rem;
   }
   #index_part_1 > .upper {
+    width: 100%;
     padding-bottom: 3rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   #index_part_1 > .upper h1 {
     font-size: 2.1rem;
-    text-align: center;
     margin-left: 0;
-    row-gap: 1rem;
     font-weight: 500;
+    text-align: center;
   }
   #index_part_1 > .upper h1 span {
+    display: inline;
     font-weight: 500;
   }
   #index_part_1 > .upper h1 > span:nth-child(3) {
@@ -645,6 +656,7 @@ section {
     margin-top: 2rem;
     padding: 1rem 1.5rem;
     font-size: 1rem;
+    transform: unset !important;
   }
   #index_part_1 > .lower {
     flex-direction: column;
@@ -767,41 +779,49 @@ section {
 @media screen and (max-width: 500px) {
   #index_part_2 {
     top: 2rem;
-    height: 85vh;
+    height: 145vh;
   }
-  #index_part_2 .part_2_div {
+  #index_part_2 > #index_part_2_scroll_wrap {
+    width: 100%;
+  }
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div {
     flex-direction: column;
     padding-top: 3rem;
   }
-  #index_part_2 .part_2_div > .left {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .left {
     width: 100%;
     gap: 1.5rem;
   }
-  #index_part_2 .part_2_div > .left > h1 {
-    font-size: 2rem;
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .left > h1 {
+    font-size: 2.2rem;
   }
-  #index_part_2 .part_2_div > .left > span {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .left > span {
     font-size: 1.1rem;
   }
-  #index_part_2 .part_2_div > .left > .svg_div img {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .left > .svg_div {
+    justify-content: center;
+  }
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .left > .svg_div img {
     width: 100%;
   }
-  #index_part_2 .part_2_div > .right {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .right {
     width: 100%;
     gap: 2rem;
+    align-items: flex-start;
+    margin-left: 0;
   }
-  #index_part_2 .part_2_div > .right > p {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .right > p {
     width: 90%;
     font-size: 1.4rem;
   }
-  #index_part_2 .part_2_div > .right > div {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .right > div {
     width: 100%;
   }
-  #index_part_2 .part_2_div > .right > div > div > h3 > span, #index_part_2 .part_2_div > .right > div > div > h3 > span > span {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .right > div > div > h3 > span, #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .right > div > div > h3 > span > span {
     font-size: 1.1rem;
     font-weight: 600;
   }
-  #index_part_2 .part_2_div > .right > div > div > p {
+  #index_part_2 > #index_part_2_scroll_wrap .part_2_div > .right > div > div > p {
     font-size: 1rem;
   }
 }
