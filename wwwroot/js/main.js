@@ -20,45 +20,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    const animatedTextElements = document.querySelectorAll("[data-text]");
+// document.addEventListener("DOMContentLoaded", () => {
+//     const animatedTextElements = document.querySelectorAll("[data-text]");
   
-    animatedTextElements.forEach((element) => {
-      const text = element.dataset.text; // Get the value of data-text attribute
-      element.innerHTML = ""; // Clear the element content
+//     animatedTextElements.forEach((element) => {
+//       const text = element.dataset.text; // Get the value of data-text attribute
+//       element.innerHTML = ""; // Clear the element content
   
-      // Split text into lines based on \ (escape character)
-      const lines = text.split("\\");
-      lines.forEach((line, lineIndex) => {
-        const words = line.split(" ");
-        words.forEach((word, wordIndex) => {
-          const wordContainer = document.createElement("span");
-          wordContainer.style.whiteSpace = "nowrap"; // Ensure word stays intact
+//       // Split text into lines based on \ (escape character)
+//       const lines = text.split("\\");
+//       lines.forEach((line, lineIndex) => {
+//         const words = line.split(" ");
+//         words.forEach((word, wordIndex) => {
+//           const wordContainer = document.createElement("span");
+//           wordContainer.style.whiteSpace = "nowrap"; // Ensure word stays intact
   
-          word.split("").forEach((char) => {
-            const span = document.createElement("span");
-            span.textContent = char;
-            wordContainer.appendChild(span);
-          });
+//           word.split("").forEach((char) => {
+//             const span = document.createElement("span");
+//             span.textContent = char;
+//             wordContainer.appendChild(span);
+//           });
   
-          element.appendChild(wordContainer);
+//           element.appendChild(wordContainer);
   
-          // Add a space after each word except the last in the line
-          if (wordIndex < words.length - 1) {
-            const space = document.createElement("span");
-            space.textContent = "\u00A0"; // Preserve space
-            element.appendChild(space);
-          }
-        });
+//           // Add a space after each word except the last in the line
+//           if (wordIndex < words.length - 1) {
+//             const space = document.createElement("span");
+//             space.textContent = "\u00A0"; // Preserve space
+//             element.appendChild(space);
+//           }
+//         });
   
-        // Add <br> if it's not the last line
-        if (lineIndex < lines.length - 1) {
-          const br = document.createElement("br");
-          element.appendChild(br);
-        }
-      });
-    });
-  });
+//         // Add <br> if it's not the last line
+//         if (lineIndex < lines.length - 1) {
+//           const br = document.createElement("br");
+//           element.appendChild(br);
+//         }
+//       });
+//     });
+//   });
 
 
   document.getElementById("color_mode_button").addEventListener("click",function (params) {
